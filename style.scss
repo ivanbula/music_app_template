@@ -1,0 +1,275 @@
+// variables
+$navBlue: #09192c; 
+$darkBlue: #0b193c;
+$pink: #f91257;
+$white: white;
+$lightGray: #f8f8f8;
+$violet: #383c6e;
+$fontFamily: 'Montserrat', sans-serif;
+$fontColor: #0b193c;
+$fontSize: 16px;
+$transition: .3s ease;
+$py: 80px 0;
+
+// mixins
+@mixin flex($justifyContent, $alignItems, $direction) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-direction: $direction;
+}
+
+// basic styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: $fontSize;
+    color: $fontColor;
+    font-family: $fontFamily;
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    transition: $transition;
+    color: $white;
+    padding: 30px;
+    @media(max-width:767px) {
+        padding: 20px 10px;
+    }
+}
+
+a:hover {
+    color: $pink;
+}
+
+img {
+    width: 100%;
+}
+
+span {
+    color: $pink;
+}   
+
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    @media(max-width:1024px) {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+    @media(max-width:1024px) {
+        font-size: 2rem;
+    }
+}
+
+button {
+    border: none;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    padding: 15px 30px;
+    background: $pink;
+    color: $white;
+    font-size: .9rem;
+    text-transform: uppercase;
+    transition: $transition;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: transparent;
+    border: 2px solid $pink;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    @media(max-width:767px) {
+          width: 90%;
+    }
+}
+
+.active {
+    color: $pink;
+}
+
+// nav
+nav {
+    background: $navBlue;
+    padding: 0 20px;
+    @include flex(space-between, center, row);
+    @media(max-width:767px) {
+         padding: 20px 0;
+         @include flex(center, center, row);
+    }
+    ul {
+        @include flex(space-between, center, row);
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
+// header
+header {
+    background: $darkBlue;
+    color: $white;
+    padding: 50px;
+    @include flex(space-between, center, row);
+    article {
+        flex: 0 0 48%;
+        @media(max-width:767px) {
+            flex: 0 0 100%;
+            &:first-child {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+// access
+.access {
+    padding: $py;
+    @include flex(space-between, center, row);
+    article {
+        flex: 0 0 48%;
+        @media(max-width:767px) {
+           flex: 0 0 100%;
+        }
+    }
+    button:hover {
+        color: $fontColor;
+    }
+}
+
+// footer
+footer {
+    padding: $py;
+    background: $darkBlue;
+    color: $white;
+    text-align: center;
+    h5 {
+        font-size: 1.3rem;
+    }
+    p {
+        font-size: .8rem;
+        margin: 20px 0;
+    }
+}
+
+// works
+.works {
+    padding: $py;
+    background: $darkBlue;
+    color: $white;
+    article {
+         @include flex(space-between, center, row);
+         div {
+            flex: 0 0 30%;
+            @media(max-width:1024px) {
+               flex: 0 0 100%;
+               margin-top: 20px;
+            }
+         }
+    }
+    i {
+        color: $pink;
+        font-size: 3rem;
+        padding-bottom: 20px;
+    }
+}
+
+// concept
+.concept, .subConcept {
+    padding: $py;
+}
+
+.concept article, .subConcept article {
+    @include flex(space-between, center, row);
+    &:first-child div{
+        flex: 0 0 48%;
+        margin-bottom: 50px;
+        @media(max-width:1024px) {
+            flex: 0 0 100%;
+        }
+        &:first-child {
+            align-self: flex-start;
+        }
+    }
+    &:last-child div{
+        flex: 0 0 22%;
+        text-align: center;
+        @media(max-width:767px) {
+            flex: 0 0 100%;
+        }
+    }
+    img{
+        border-radius: 50px;
+        width: 80%;
+    }
+}
+
+.subConcept article {
+    img {
+        border-radius: 50%;
+    }
+}
+
+// subscription
+.subscription {
+    padding: $py;
+    background: $darkBlue;
+    color: $white;
+    .container {
+         @include flex(space-between, center, row);
+         article {
+            flex: 0 0 48%;
+            @media(max-width:1024px) {
+                flex: 0 0 100%;
+            }
+            &:last-child {
+                @include flex(center, center, row);
+                background: $violet;
+                border-radius: 20px;
+                padding: 50px;
+                li {
+                    margin-bottom: 20px;
+                }
+                li:before {
+                    font-family: "Font Awesome 5 Free"; 
+                    font-weight: 400;
+                    content: "\f058";
+                    margin-right: 10px;
+                    color: $pink;
+                }
+                 @media(max-width:1024px) {
+                    margin-top: 20px;
+                    padding: 30px;
+                }
+            }
+         }
+        h3 {
+            color: $pink;
+            font-size: 1.5rem;
+        }
+    }
+}

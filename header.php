@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicApp</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- nav -->
+<nav>
+    <a href="index.php" class="logo"><span>Music</span>App</a>
+    <ul>
+        <li>
+            <a href="index.php" class="<?php if($page == 'home') {echo 'active';}?>">Home</a>
+        </li>
+        <li>
+            <a href="works.php" class="<?php if($page == 'works') {echo 'active';}?>">How it works</a>
+        </li>
+        <li>
+            <a href="subscription.php" class="<?php if($page == 'subscription') {echo 'active';}?>">Subscription</a>
+        </li>
+    </ul>
+</nav>
